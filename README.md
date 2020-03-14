@@ -24,7 +24,7 @@ SalaryPrediction.ipynb-This notebook contains data preprocessing, modeling, para
 
 # Data preprocessing
 
-As a part of data cleaning I have impelemented following steps:
+As a part of data cleaning I have impelemented following steps
 
 - There are no duplicate rows
 - Few rows have salary as 0.Removed these rows as these rows are tiny fraction of overall dataset
