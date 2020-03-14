@@ -44,12 +44,7 @@ As a part of data cleaning I have impelemented following steps
 - CEO is paid highest followed by CTO, CFO, Vice_president, Senior, Juior and Janitar. 
 - For degree, it is seen that salaries increases according to their level of education. However, Average salary for all majors is almost same. None degrees are paid less than average. 
 - Label encoding to convert the categorical data into numerical.
-
-# Exploratory Data Analysis
-Looking at the Box plot, average salary for higher educated people are higher compared to those who have low degree. Similary C-level positions are paid higher salary. However, average salary for all majors are pretty much same. For industry, Oil and finance are highly paid industry whereas eaducation is low paying industry. 
-
-
-From numerical plot, It is found that, Salary Increase linearly with yearsExperiences wheras salary decreaes with increase milesFromMetroplis. 
+- There is interaction between yearofExperience and MilesfromMetro
 
 # Modeling
 Baseline model is built based on the average salary for industry column and mean squared error(MSE) is calculated 1634.6951926513882 which is very high. 
