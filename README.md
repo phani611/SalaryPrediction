@@ -1,2 +1,2 @@
 # SalaryPrediction
- Supervised-Python-MLR
+ Supervised-Python-MVR
