@@ -38,21 +38,23 @@ As a part of data cleaning I have impelemented following steps
 - There are no duplicate rows
 - Few rows have salary as 0.Removed these rows as these rows are tiny fraction of overall dataset
 - It might help to build two datasets - one with Janitor/Junior staff and one with every other job type
+- Degree does not seem like great differentiator
 - Salary is directly proportional to the Years of experience (correlation coefficient 0.38)
 - Salary is inversely proportional to miles from Metro (correlation coefficient -0.3)
 - Highly paid industries are OIL and FINANCE and lowest paid is Education. 
 - CEO is paid highest followed by CTO, CFO, Vice_president, Senior, Juior and Janitar. 
-- For degree, it is seen that salaries increases according to their level of education. However, Average salary for all majors is almost same. None degrees are paid less than average. 
 - Label encoding to convert the categorical data into numerical.
 - There is interaction between yearofExperience and MilesfromMetro
 
+# Evaluation metric
+- MSE has been used to evaluate best model. MSE addresses both bias and variance
+
 # Modeling
-Baseline model is built based on the average salary for industry column and mean squared error(MSE) is calculated 1634.6951926513882 which is very high. 
-Based on the exploraory data analysis i chose Four regression models(LinearRegression, RandomForestRegressor, GradientBoostingRegressor, XGBRegressor) and compared the scores. GradientBoosting gives the best result. MSE for gradientBoosting model is 377.45402752571204. This result is found for default parameters. By applying parameter tuning method we can find the best parameters. 
+Two models were tries 
+1.  Multivariate Regression : MVR model as been built with interaction variable, average salary for all individual group and rest of the variables provided in the dataset. Got an MSE of 907. This is not great score considering expected MSE of 360
 
-# Parameter tuning and predictions
-GridSearchCV is used to find the best parameters. Best score for the parameters are found to be 'learning_rate': 0.1, 'max_depth': 5, 'n_estimators': 250 . Using best parameters final MSE is found to be 356.41210502710135.
-Final prediction is made based on the best parameters for the chosen model- gradientBoosting
+2. XGBoost : XGBoost has been built to understand if there were any non linear relationship. Rightly so MSE has come down from 907 to 355, less than expected score of 360. Same set of  variable have been used.
 
-# Feature Importance
-Feature importance method is used to find the important features that influences the predictions. Most important features are identified as jobtype, yearsExperience and milefrommetropolices.
+# Deployment and follow up
+XGBoost model can be deployed as baseline model until better model is found. Instead of trying to tune the parameters for this model, it is advisable to train the model using additional variables/feature to get better results
+
